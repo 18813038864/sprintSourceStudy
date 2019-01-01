@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<beans xmlns = "http://www.springframework.org/schema/beans"
-       xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemalocation = "http://www.springframework.org/schema/beans
-            http://www.springframework.org/schema/beans/spring-beans.xsd">
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-autowire="byName">
 
 
 
-    <bean id = "myTestBean" class = "sourceStudy.springSourceStudy.com.model.MyTestBean"/>
+    <!--<bean id = "myTestBean" class = "sourceStudy.springSourceStudy.com.model.MyTestBean"/>-->
 
+    <bean id="testA" class="sourceStudy.springSourceStudy.com.model.TestA">
+        <constructor-arg index="0" ref="testB"/>
+    </bean>
+    <bean id="testB" class="sourceStudy.springSourceStudy.com.model.TestB">
+        <constructor-arg index="0" ref="testC"/>
+    </bean>
+    <bean id="testC" class="sourceStudy.springSourceStudy.com.model.TestC">
+        <constructor-arg index="0" ref="testA"/>
+    </bean>
 </beans>

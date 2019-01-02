@@ -76,4 +76,13 @@ public class BeanFactoryTest {
         Date date =conversionService.convert(dateStr,Date.class);
         System.out.println(date);
     }
+
+    @Test
+    public void testAop(){
+        ApplicationContext context =  new ClassPathXmlApplicationContext("application.xml");
+
+        MyTestBean myTestBean = (MyTestBean) context.getBean("myTestBean");
+
+        myTestBean.test();
+    }
 }

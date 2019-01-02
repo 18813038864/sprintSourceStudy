@@ -17,20 +17,40 @@
     <!--<bean id="testC" class="sourceStudy.springSourceStudy.com.model.TestC">-->
         <!--<constructor-arg index="0" ref="testA"/>-->
     <!--</bean>-->
-    <!--propertyPlaceholderConfig间接继承了BeanFactoryPostProcessor，beanFactory后处理会在refresh（）的postProcessBeanFactory中被加载-->
-    <bean id="mesHandler" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="locations">
-            <list>
-                <value>classpath*:properties/bean.properties</value>
-            </list>
-        </property>
-    </bean>
+    <!--propertyPlaceholderConfig间接继承了BeanFactoryPostProcessor，beanFactory后处理会在refresh（）的invokeBeanFactoryPostProcessors中被调用-->
+    <!--<bean id="mesHandler" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
+        <!--<property name="locations">-->
+            <!--<list>-->
+                <!--<value>classpath*:properties/bean.properties</value>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
 
-    <bean id="message" class="sourceStudy.springSourceStudy.com.model.HelloMessage">
-        <property name="mes">
-            <value>${bean.message}</value>
-        </property>
-    </bean>
+    <!--<bean id="message" class="sourceStudy.springSourceStudy.com.model.HelloMessage">-->
+        <!--<property name="mes">-->
+            <!--<value>${bean.message}</value>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <!--<bean id="bfbp" class="sourceStudy.springSourceStudy.com.processor.ObscenityRemoveBeanFactoryProcessor">-->
+        <!--<property name="obscenities">-->
+            <!--<set>-->
+                <!--<value>bollocks</value>-->
+                <!--<value>winky</value>-->
+                <!--<value>lenovo</value>-->
+                <!--<value>project</value>-->
+            <!--</set>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <!--<bean id="simpleBean" class="sourceStudy.springSourceStudy.com.model.SimpleBean">-->
+        <!--<property name="connctionString" value="bollocks"/>-->
+        <!--<property name="password" value="password"/>-->
+        <!--<property name="username" value="username"/>-->
+    <!--</bean>-->
+
+
+    <bean id="testListener" class="sourceStudy.springSourceStudy.com.listener.TestListener"/>
 
 
 </beans>

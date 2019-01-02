@@ -50,7 +50,14 @@
     <!--</bean>-->
 
 
-    <bean id="testListener" class="sourceStudy.springSourceStudy.com.listener.TestListener"/>
+    <!--<bean id="testListener" class="sourceStudy.springSourceStudy.com.listener.TestListener"/>-->
 
+    <bean id="convesionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <list>
+                <bean class="sourceStudy.springSourceStudy.com.conversionService.StringToDateConverter"/>
+            </list>
+        </property>
+    </bean>
 
 </beans>

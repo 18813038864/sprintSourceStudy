@@ -4,12 +4,16 @@ import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.core.convert.support.DefaultConversionService;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.util.Assert;
+import sourceStudy.springSourceStudy.com.conversionService.StringToDateConverter;
 import sourceStudy.springSourceStudy.com.listener.TestEvent;
 import sourceStudy.springSourceStudy.com.model.HelloMessage;
 import sourceStudy.springSourceStudy.com.model.MyTestBean;
 import sourceStudy.springSourceStudy.com.model.SimpleBean;
+
+import java.util.Date;
 
 @SuppressWarnings("deprecation")
 public class BeanFactoryTest {
@@ -59,5 +63,17 @@ public class BeanFactoryTest {
 
         TestEvent event = new TestEvent(context,"listener test");
         context.publishEvent(event);
+    }
+
+    @Test
+    public void testConverter(){
+//        ApplicationContext context =  new ClassPathXmlApplicationContext("beanFactoryTest.xml");
+
+        DefaultConversionService conversionService = new DefaultConversionService();
+        conversionService.addConverter(new StringToDateConverter());
+
+        String dateStr = "2018-08-08 10:08:08";
+        Date date =conversionService.convert(dateStr,Date.class);
+        System.out.println(date);
     }
 }

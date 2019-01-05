@@ -12,8 +12,11 @@
        default-autowire="byName">
 
     <!--<bean id="messageService" class="sourceStudy.springSourceStudy.com.service.impl.MessageServiceImpl"/>-->
-    <aop:aspectj-autoproxy/>
+    <!--<aop:aspectj-autoproxy/>-->
 
-    <bean id="myTestBean" class="sourceStudy.springSourceStudy.com.model.MyTestBean"/>
-    <bean class="sourceStudy.springSourceStudy.com.aspectJ.AspectJTest"/>
+    <!--<bean id="myTestBean" class="sourceStudy.springSourceStudy.com.model.MyTestBean"/>-->
+    <!--<bean class="sourceStudy.springSourceStudy.com.aspectJ.AspectJTest"/>-->
+    <bean id="testFb" class="sourceStudy.springSourceStudy.com.model.TestFb"/>
+    <bean class="sourceStudy.springSourceStudy.com.processor.MyInstantiationAwareBeanPostProcessor"/>
+
 </beans>

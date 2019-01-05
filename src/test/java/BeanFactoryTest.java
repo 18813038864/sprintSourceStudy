@@ -12,6 +12,7 @@ import sourceStudy.springSourceStudy.com.listener.TestEvent;
 import sourceStudy.springSourceStudy.com.model.HelloMessage;
 import sourceStudy.springSourceStudy.com.model.MyTestBean;
 import sourceStudy.springSourceStudy.com.model.SimpleBean;
+import sourceStudy.springSourceStudy.com.model.TestFb;
 
 import java.util.Date;
 
@@ -84,5 +85,12 @@ public class BeanFactoryTest {
         MyTestBean myTestBean = (MyTestBean) context.getBean("myTestBean");
 
         myTestBean.test();
+    }
+
+    @Test
+    public void testInstantionAwarePostprocessor(){
+        ApplicationContext context =  new ClassPathXmlApplicationContext("application.xml");
+        TestFb testFb = (TestFb) context.getBean("testFb");
+        testFb.dosomething();
     }
 }
